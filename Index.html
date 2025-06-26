@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 1st Anniversary 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffffff 0%, #e0f7fa 50%, #fce4ec 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: #4db6ac;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            color: #f8bbd9;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, #4db6ac, #f8bbd9);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: #4db6ac;
+            border: 4px solid #fff;
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -10px;
+            background: #f8bbd9;
+        }
+
+        .content {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .content h3 {
+            color: #4db6ac;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .love-counter {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        .love-counter h2 {
+            color: #f8bbd9;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .counter-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4db6ac;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .footer h3 {
+            color: #f8bbd9;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.02);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::after {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 10px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Our Beautiful Journey</h1>
+            <p>Celebrating 1 Month of This beautiful Journy 💕</p>
+        </div>
+
+        <div class="love-counter">
+            <h2>Days Together</h2>
+            <div class="counter-display" id="dayCounter">31</div>
+            <p style="margin-top: 15px; color: #666;">And counting every precious moment...</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>💫 The Beginning</h3>
+                    <p>A month ago, something magical happened. Two hearts found each other and decided to write a beautiful story together. Every day since then has been a new chapter filled with love, laughter, and endless joy.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>🌸 Growing Together</h3>
+                    <p>In just a few months, we've shared countless smiles, sweet conversations, and moments that make my heart skip a beat. Each day with you, Nasihah, feels like a gift wrapped in your favorite colors of love.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>💝 What Makes You Special</h3>
+                    <p>Your beautiful spirit shines as bright as the light bluish green of ocean waves, your heart is as pure as white snow, and your love fills my world with the softest shade of pink. You are my everything.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>🌟 Looking Ahead</h3>
+                    <p>This is just the beginning of our incredible journey. With every sunrise, my love for you grows stronger. Here's to many more months, years, and a lifetime of beautiful memories together.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>To My Dearest Nasihah</h3>
+            <p>Thank you for making every day brighter, every moment sweeter, and every dream more beautiful. Here's to us and our amazing future together! 💕</p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💕';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = '100%';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 2000);
+
+        // Animate day counter
+        let currentDay = 0;
+        const targetDay = 30;
+        const dayCounter = document.getElementById('dayCounter');
+        
+        const countUp = setInterval(() => {
+            if (currentDay <= targetDay) {
+                dayCounter.textContent = currentDay;
+                currentDay++;
+            } else {
+                clearInterval(countUp);
+            }
+        }, 100);
+
+        // Add some interactive sparkle effects
+        document.addEventListener('click', function(e) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            sparkle.style.color = '#f8bbd9';
+            sparkle.style.fontSize = '20px';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '1000';
+            sparkle.innerHTML = '✨';
+            sparkle.style.animation = 'float 1s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
